@@ -43,6 +43,8 @@ RControl & M::
 !E:: ; ! represents the Alt key
     Run, microsoft-edge:
     return
+	
+!N::Run "C:\Program Files\Notepad++\notepad++.exe"
 
 ; Numpad key mouse control script
 
