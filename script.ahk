@@ -4,6 +4,35 @@ CapsLock::LWin
 ::;email::maliksaqibahmad.dev@proton.me
 ::;name::Saqib Malik
 
+; Minimize Active Window with Alt + M
+!m::WinMinimize, A
+
+; Move Window to Next Monitor with Alt + Right Arrow
+!Right::
+WinGet, hwnd, ID, A
+WinMove, ahk_id %hwnd%, , A_ScreenWidth, 0
+return
+
+; Move Window to Previous Monitor with Alt + Left Arrow
+!Left::
+WinGet, hwnd, ID, A
+WinMove, ahk_id %hwnd%, , -A_ScreenWidth, 0
+return
+
+; Toggle Maximize Window with Alt + D
+!d::
+WinGet, WindowState, MinMax, A
+if (WindowState = 1) ; Window is maximized
+    WinRestore, A
+else
+    WinMaximize, A
+return
+
+; Close Window with Alt + S
+!s::
+WinClose, A
+return
+
 ; Spotify Playback Controls using Right Control (RCtrl)
 
 ; Play/Pause - RCtrl + Space
@@ -43,6 +72,9 @@ RControl & M::
 !E:: ; ! represents the Alt key
     Run, microsoft-edge:
     return
+
+; Open Task Manager with Alt + T
+!t::Run, taskmgr
 	
 !N::Run "C:\Program Files\Notepad++\notepad++.exe"
 
